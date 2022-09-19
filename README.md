@@ -3,7 +3,7 @@ This is my take on a childhood game my classmates and I used to play on paper. I
 
 ## How to play
 - The player is given 30 secs to provide a name, a country and an animal that starts with Bingo's letter
-- If the player gets at least one of them correct, they are awarded 10 points
+- The player is awarded 10 points for each correct input
 - If the player gets all wrong or the time is exhausted, the game ends.
 
 ## Demo
