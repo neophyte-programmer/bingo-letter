@@ -1,9 +1,11 @@
 import React from 'react';
+import Container from './components/Container';
+
 
 function App() {
   return (
-    <div className="h-screen w-screen bg-blue-500 text-white">
-      
+    <div className="h-screen w-screen flex items-center justify-center p-5 bg-gradient-to-br from-purple-600 to-pink-600">
+      <Container />
     </div>
   );
 }
