@@ -25,3 +25,6 @@ In writing the algorithm, I came across different ways that I could iterate thro
 was the most efficient since it was the fastest of all the other options based on the input size.
 
 ## How it looks
+![Bingo Letter](screenshots/1.png)
+![Bingo Letter](screenshots/2.png)
+![Bingo Letter](screenshots/3.png)
