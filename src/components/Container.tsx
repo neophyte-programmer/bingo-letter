@@ -4,7 +4,7 @@ import { letters, countries, animals, names } from '../utils/data'
 
 const Container = () => {
 	const { countdown, reset, start } = useCountdownTimer({
-		timer: 1000 * 30,
+		timer: 1000 * 40,
 		autostart: false,
 	})
 	const [gameOver, setGameOver] = useState(false)
