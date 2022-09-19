@@ -44,7 +44,7 @@ const Container = () => {
 	const validateCountry = (country: string): boolean => {
 		if (country.substring(0, 1).toUpperCase() === bingoLetter) {
 			if (countriesUpper.includes(country.toUpperCase())) {
-				setScore((score) => score + 10)
+				// setScore((score) => score + 10)
 				return true
 			}
 		}
@@ -53,7 +53,7 @@ const Container = () => {
 	const validateName = (name: string): boolean => {
 		if (name.substring(0, 1).toUpperCase() === bingoLetter) {
 			if (namesUpper.includes(name.toUpperCase())) {
-				setScore((score) => score + 10)
+				// setScore((score) => score + 10)
 				return true
 			}
 		}
@@ -62,7 +62,7 @@ const Container = () => {
 	const validateAnimal = (animal: string): boolean => {
 		if (animal.substring(0, 1).toUpperCase() === bingoLetter) {
 			if (animalsUpper.includes(animal.toUpperCase())) {
-				setScore((score) => score + 10)
+				// setScore((score) => score + 10)
 				return true
 			}
 		}
@@ -98,14 +98,76 @@ const Container = () => {
 			return
 		} else {
 			if (
-				validateCountry(country) ||
-				validateName(name) ||
+				validateCountry(country) &&
+				validateName(name) &&
 				validateAnimal(animal)
 			) {
+				setScore((score) => score + 30)
+
 				clearFields()
 				generateLetter()
 				start()
-			} else {
+			} else if (
+				!validateCountry(country) &&
+				validateName(name) &&
+				validateAnimal(animal)
+			) {
+				setScore((score) => score + 20)
+
+				clearFields()
+				generateLetter()
+				start()
+			} else if (
+				validateCountry(country) &&
+				!validateName(name) &&
+				validateAnimal(animal)
+			) {
+				setScore((score) => score + 20)
+
+				clearFields()
+				generateLetter()
+				start()
+			} else if (
+				validateCountry(country) &&
+				validateName(name) &&
+				!validateAnimal(animal)
+			) {
+				setScore((score) => score + 20)
+
+				clearFields()
+				generateLetter()
+				start()
+			} else if (
+				!validateCountry(country) &&
+				!validateName(name) &&
+				validateAnimal(animal)
+			) {
+				setScore((score) => score + 10)
+
+				clearFields()
+				generateLetter()
+				start()
+			} else if (
+				!validateCountry(country) &&
+				validateName(name) &&
+				!validateAnimal(animal)
+			) {
+				setScore((score) => score + 10)
+
+				clearFields()
+				generateLetter()
+				start()
+			} else if (
+				validateCountry(country) &&
+				!validateName(name) &&
+				!validateAnimal(animal)
+			) {
+				setScore((score) => score + 10)
+
+				clearFields()
+				generateLetter()
+				start()
+			}else {
 				setGameOver(true)
 				clearFields()
 				setFinalScore(score)
@@ -154,30 +216,30 @@ const Container = () => {
 				<input
 					type='text'
 					value={country}
-                    onChange={(e) => {
-                        setCountry(e.target.value)
-                        start()
-                    }}
+					onChange={(e) => {
+						setCountry(e.target.value)
+						start()
+					}}
 					placeholder='Country'
 					className='outline-none bg-transparent border-b-2 border-purple-600 w-full placeholder:text-gray-300'
 				/>
 				<input
 					type='text'
 					value={name}
-                    onChange={(e) => {
-                        setName(e.target.value)
-                        start()
-                    }}
+					onChange={(e) => {
+						setName(e.target.value)
+						start()
+					}}
 					placeholder='Name'
 					className='outline-none bg-transparent border-b-2 border-purple-600 w-full placeholder:text-gray-300'
 				/>
 				<input
 					type='text'
 					value={animal}
-                    onChange={(e) => {
-                        setAnimal(e.target.value)
-                        start()
-                    }}
+					onChange={(e) => {
+						setAnimal(e.target.value)
+						start()
+					}}
 					placeholder='Animal'
 					className='outline-none bg-transparent border-b-2 border-purple-600 w-full placeholder:text-gray-300'
 				/>
